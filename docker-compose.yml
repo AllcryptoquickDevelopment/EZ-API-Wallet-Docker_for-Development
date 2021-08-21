@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   app:
-    image: "allcryptoquick/ez-api-wallet-docker_for-development-app:${TAG:-latest}"
+    image: "allcryptoquick/ez-api-wallet-docker_for-development-app:v1.0"
     build:
       args:
         user: walletuser
@@ -15,7 +15,7 @@ services:
       - ./:/var/www
 
   nginx:
-    image: "allcryptoquick/ez-api-wallet-docker_for-development-nginx:${TAG:-latest}"
+    image: "allcryptoquick/ez-api-wallet-docker_for-development-nginx:v1.0"
     build:
       context: ./
       dockerfile: docker-compose/nginx.dockerfile
