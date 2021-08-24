@@ -1,0 +1,39 @@
+name: Linux_Container_Workflow
+
+# Controls when the action will run.
+on:
+  push:
+    branches: [ docker-for-production ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # checkout the repo
+      - name: 'Checkout GitHub Action'
+        uses: actions/checkout@master
+
+      - name: 'Login via Azure CLI'
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - uses: azure/docker-login@v1
+        with:
+          login-server: ezapi.azurecr.io
+          username: ${{ secrets.REGISTRY_USERNAME }}
+          password: ${{ secrets.REGISTRY_PASSWORD }}
+      - run: |
+          docker build . -t ezapi.azurecr.io/ez-api-wallet-docker_for-production-app:${{ github.sha }}
+          docker push ezapi.azurecr.io/ez-api-wallet-docker_for-production-app:${{ github.sha }}
+
+      - name: 'Deploy to Azure Container Instances'
+        uses: 'azure/aci-deploy@v1'
+        with:
+          resource-group: contoso
+          dns-name-label: url-for-container
+          image: ezapi.azurecr.io/ez-api-wallet-docker_for-production-app:${{ github.sha }}
+          registry-username: ${{ secrets.REGISTRY_USERNAME }}
+          registry-password: ${{ secrets.REGISTRY_PASSWORD }}
+          name: contoso-container
+          location: 'west us'
