@@ -9,8 +9,9 @@
 	  	"barryvdh/laravel-debugbar": "1.*",
 	  	"raahul/larryfour": "1.*",
         "guzzlehttp/guzzle": "~5.3",
-		"pda/pheanstalk": "~2.0"
-	},
+		"pda/pheanstalk": "~2.0",
+      	"ext-bcmath": "*"
+    },
 	"require-dev": {
 	  "doctrine/dbal": "2.*",
 	  "mockery/mockery": "dev-master@dev"

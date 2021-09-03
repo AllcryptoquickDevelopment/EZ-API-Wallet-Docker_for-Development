@@ -47,7 +47,7 @@ class ApiController extends BaseController
 		$user_balance = Balance::getBalance($this->user->id, $this->crypto_type_id);
 
 
-		if (count($user_balance)) {
+		if ($user_balance) {
 			Log::info('Queried balance for ' . $this->user->email . ': ' . $user_balance->balance . ' satoshis. Crypto type id: ' . $this->crypto_type_id);
 			$response = ['balance' => $user_balance->balance, 'crypto_type' => $this->crypto_type_id];
 		} else {
@@ -166,7 +166,7 @@ class ApiController extends BaseController
 
 		$user_address = Address::getAddressForUser($address, $this->user->id);
 
-		if (count($user_address)) {
+		if ($user_address) {
 			$is_mine = true;
 		}
 
@@ -931,7 +931,7 @@ class ApiController extends BaseController
 		}
 
 		// no user found
-		if (!count($user)) {
+		if (!$user) {
 			return ['status' => 'error', 'message' => NO_USER];
 		}
 		if ($user->password != Input::get('password')) {
