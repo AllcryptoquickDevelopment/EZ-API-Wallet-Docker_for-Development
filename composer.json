@@ -10,7 +10,9 @@
 	  	"raahul/larryfour": "1.*",
         "guzzlehttp/guzzle": "~5.3",
 		"pda/pheanstalk": "~2.0",
-      	"ext-bcmath": "*"
+      	"ext-bcmath": "*",
+      	"ext-json": "*",
+      	"ext-curl": "*"
     },
 	"require-dev": {
 	  "doctrine/dbal": "2.*",
