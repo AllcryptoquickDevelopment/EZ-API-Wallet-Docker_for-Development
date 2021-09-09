@@ -36,7 +36,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - database-data:/var/lib/postgresql/data/
+      - ./docker-compose/pgsql:/docker-entrypoint-initdb.d/
     environment:
       POSTGRES_USER: wallet-usr
       POSTGRES_PASSWORD: wallet-pwd
