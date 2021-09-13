@@ -256,6 +256,6 @@ CREATE TABLE "public"."users" (
 ) WITH (oids = false);
 
 INSERT INTO "users" ("id", "guid", "password", "email", "name", "secret", "callback_url", "blocknotify_callback_url", "rpc_connection", "created_at", "updated_at", "ignore_balance") VALUES
-(1,	'7xDsRLyXEd1PgJ6Glrhs6d',	'strong_pass_plz',	'foo@bar.com',	'John Doe',	'secretsecret',	'https://url.to/send/on/btc/received',	'https://url.to/send/on/btc/received',	'https://btcrpc:btcpayserver4ever@jb2r4rrwon33edobzejp3bbz5oofiymeip6v32bsz6ywfsl3zn5bqfad.onion:8332',	'2021-08-25 11:59:15',	'2021-08-25 11:59:15',	'0');
+(1,	'7xDsRLyXEd1PgJ6Glrhs6d',	'strong_pass_plz',	'foo@bar.com',	'John Doe',	'secretsecret',	'https://url.to/send/on/btc/received',	'https://url.to/send/on/btc/received',	'https://btcrpc:btcpayserver4ever@3g7koka44nh4j5bwnl554ddr7mkmq6ylaqcjhx6z5k62gautgburmdqd.onion:8332',	'2021-08-25 11:59:15',	'2021-08-25 11:59:15',	'0');
 
 -- 2021-08-31 23:29:42.188968+00
